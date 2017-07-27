@@ -1,0 +1,163 @@
+﻿@import 'compass';
+//** Generate responsive of image
+@mixin image-responsive($rootdir, $imagename, $responsive: 1) {
+    //(,root parth, imagename ,true/false: mac dinh là false khong generate sang image mobile khi khong can thiết)
+    @if $responsive==1 or $responsive==0 {
+        @if $responsive==1 {
+            background-image: url('#{$rootdir+$imagename}');
+        }
+        @else {
+            @media (min-width: $screen-sm) {
+                background-image: url('#{$rootdir+$imagename}');
+            }
+        }
+    }
+
+    @if $responsive==2 {
+        @media (min-width:$screen-sm) {
+            background-image: url('#{$rootdir+$imagename}');
+        }
+
+        @media (max-width: $screen-sm) {
+            background-image: url('#{$rootdir+$folder-mb +$imagename}');
+        }
+    }
+
+    @if $responsive==3 {
+        @media (min-width:$screen-sm) {
+            background-image: url('#{$rootdir+$imagename}');
+        }
+
+        @media (min-width:$screen-xs) and (max-width: $screen-sm) {
+            background-image: url('#{$rootdir+$folder-lap +$imagename}');
+        }
+
+        @media (max-width:$screen-xs) {
+            background-image: url('#{$rootdir+$folder-mb +$imagename}');
+        }
+    }
+}
+
+
+@mixin image-responsive-type2($rootdir, $imagename, $responsive: 1,$digitH: 1,$digitV: 1) {
+
+
+    $WidthOfOne: image-width($rootdir+$imagename)/$digitH;
+    $HeightOfOne: image-height($rootdir+$imagename)/$digitV;
+
+    @if($responsive==1) {
+        background-image: url('#{$root-images+$rootdir+$imagename}');
+        width: $WidthOfOne;
+        height: $HeightOfOne;
+    }
+
+    @if $responsive==2 {
+
+        $WidthOfOneMB: image-width($rootdir+$folder-mb+$imagename)/$digitH;
+        $HeightOfOneMB: image-height($rootdir+$folder-mb+$imagename)/$digitV;
+
+        @media (min-width:$screen-sm) {
+            background-image: url('#{$root-images+$rootdir+$imagename}');
+            width: $WidthOfOne;
+            height: $HeightOfOne;
+        }
+
+        @media (max-width: $screen-sm) {
+            background-image: url('#{$root-images+$rootdir+$folder-mb +$imagename}');
+            width: $WidthOfOneMB;
+            height: $HeightOfOneMB;
+        }
+    }
+
+    @if $responsive==3 {
+        $WidthOfOneMB: image-width($rootdir+$folder-mb+$imagename)/$digitH;
+        $HeightOfOneMB: image-height($rootdir+$folder-mb+$imagename)/$digitV;
+        $WidthOfOneLap: image-width($rootdir+$folder-lap+$imagename)/$digitH;
+        $HeightOfOneLap: image-height($rootdir+$folder-lap+$imagename)/$digitV;
+
+        @media (min-width:$screen-lg) {
+            background-image: url('#{$root-images+$rootdir+$imagename}');
+            width: $WidthOfOne;
+            height: $HeightOfOne;
+        }
+
+        @media (min-width:$screen-xs) and (max-width: $screen-lg) {
+            background-image: url('#{$root-images+$rootdir+$folder-lap +$imagename}');
+            width: $WidthOfOneLap;
+            height: $HeightOfOneLap;
+        }
+
+        @media (max-width:$screen-xs) {
+            background-image: url('#{$root-images+$rootdir+$folder-mb +$imagename}');
+            width: $WidthOfOneMB;
+            height: $HeightOfOneMB;
+        }
+    }
+
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+@mixin image-responsive-type3($rootdir, $imagename, $responsive: 1) {
+    //(,root parth, imagename ,true/false: mac dinh là false khong generate sang image mobile khi khong can thiết)
+    $WidthOfOne: image-width($rootdir+$imagename);
+    $HeightOfOne: image-height($rootdir+$imagename);
+
+    @if $responsive==1 or $responsive==0 {
+        @if $responsive==1 {
+            background-image: url('images/#{$rootdir+$imagename}');
+        }
+        @else {
+            @media (min-width: $screen-sm) {
+                background-image: url('images/#{$rootdir+$imagename}');
+            }
+        }
+
+        width: $WidthOfOne;
+        height: $HeightOfOne;
+    }
+
+    @if $responsive==2 {
+        $WidthOfOneMB: image-width($rootdir+$folder-mb+$imagename);
+        $HeightOfOneMB: image-height($rootdir+$folder-mb+$imagename);
+
+        @media (min-width:$screen-sm) {
+            background-image: url('images/#{$rootdir+$imagename}');
+            width: $WidthOfOne;
+            height: $HeightOfOne;
+        }
+
+        @media (max-width: $screen-sm) {
+            background-image: url('images/#{$rootdir+$folder-mb +$imagename}');
+            width: $WidthOfOneMB;
+            height: $HeightOfOneMB;
+        }
+    }
+
+    @if $responsive==3 {
+        $WidthOfOneMB: image-width($rootdir+$folder-mb+$imagename);
+        $HeightOfOneMB: image-height($rootdir+$folder-mb+$imagename);
+        $WidthOfOneLap: image-width($rootdir+$folder-lap+$imagename);
+        $HeightOfOneLap: image-height($rootdir+$folder-lap+$imagename);
+
+        @media (min-width:$screen-sm) {
+            background-image: url('images/#{$rootdir+$imagename}');
+            width: $WidthOfOne;
+            height: $HeightOfOne;
+        }
+
+        @media (min-width:$screen-xs) and (max-width: $screen-sm) {
+            background-image: url('images/#{$rootdir+$folder-lap +$imagename}');
+            width: $WidthOfOneLap;
+            height: $HeightOfOneLap;
+        }
+
+        @media (max-width:$screen-xs) {
+            background-image: url('images/#{$rootdir+$folder-mb +$imagename}');
+            width: $WidthOfOneMB;
+            height: $HeightOfOneMB;
+        }
+        
+    }
+display:inline-block;
+}

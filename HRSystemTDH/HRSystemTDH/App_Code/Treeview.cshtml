@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+@helper GetTreeView(List<HRSystemTDH.Models.MenuEntry> siteMenu, int parentID)
+{
+    foreach (var i in siteMenu.OrderBy(b => b.Index).Where(a => a.ParentSlugID.Equals(parentID)))
+    {
+        <li>
+            @{var submenu = siteMenu.Where(a => a.ParentSlugID.Equals(i.ID)).Count();}
+            @if (submenu > 0)
+            {
+                //--------
+            }
+            else
+            {
+                //--------
+            }
+
+            <a class="pull-left" href="@i.Slug"><i class="fa fa-clone"></i>@i.Note</a>  @if (submenu > 0)
+             { <span class="fa fa-chevron-down"></span>}
+
+            @if (submenu > 0)
+            {
+                <ul class="nav child_menu">
+                    @Treeview.GetTreeView(siteMenu, i.ID)
+                </ul>
+            }
+        </li>
+}
+}

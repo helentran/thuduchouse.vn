@@ -1,0 +1,176 @@
+﻿@using HRSystemTDH.Models
+@model IEnumerable<Employee>
+@{
+    ViewBag.Title = "Employee";
+    var listemps = Model != null ? Model : new List<Employee>();
+}
+@section style{
+    <link href="~/FancyBox/jquery.fancybox.css" rel="stylesheet" />
+    <link href="~/Content/jquerydatatable/datatables.min.css" rel="stylesheet" />
+}
+<div id="employee" class="right_col" role="main" style="">
+  
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Employee </h3>
+        </div>
+
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <par></par>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <small>Found <code>@listemps.Count()</code>  employee in system!</small>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Settings 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings 2</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <line></line>
+
+                <div class="x_content">
+                    @*<p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>*@
+                    <div class="table-responsive">
+                        <table id="TableGroup" class="table-responsive table table-striped jambo_table bulk_action">
+                            <thead>
+                                <tr class="headings">
+                                    <th class="column-title no-link last">
+                                        <span class="nobr">Action</span>
+                                    </th>
+                                    <th class="column-title">ID</th>
+                                    <th class="column-title">Code</th>
+                                    <th class="column-title">IDDept</th>
+                                    <th class="column-title">IDComp</th>
+                                    <th class="column-title">First Name</th>
+                                    <th class="column-title">Last Name</th>
+                                    <th class="column-title">D.O.B</th>
+                                    <th class="column-title">Place of Birth</th>
+                                    <th class="column-title"> EthnicGroup </th>
+                                    <th class="column-title"> Religion</th>
+                                    <th class="column-title"> PlaceOfOrigin</th>
+                                    <th class="column-title"> Nationnality </th>
+                                    <th class="column-title"> CurrentAddress </th>
+                                    <th class="column-title"> ResidentAddress </th>
+                                    <th class="column-title"> Telephone </th>
+                                    <th class="column-title"> Mobile </th>
+                                    <th class="column-title"> IDNumber </th>
+                                    <th class="column-title"> DateOfIssue </th>
+                                    <th class="column-title"> PlaceOfIssue </th>
+                                    <th class="column-title"> Gender </th>
+                                    <th class="column-title"> Image </th>
+                                    <th class="column-title"> Position </th>
+                                    <th class="column-title"> Email </th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th class="colhidden"></th>
+                                    <th>ID</th>
+                                    <th>Code</th>
+                                    <th>IDDept</th>
+                                    <th>IDComp</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>D.O.B</th>
+                                    <th>Place</th>
+                                    <th> EthnicGroup </th>
+                                    <th> Religion</th>
+                                    <th> PlaceOfOrigin</th>
+                                    <th> Nationnality </th>
+                                    <th> CurrentAddress </th>
+                                    <th> ResidentAddress </th>
+                                    <th> Telephone </th>
+                                    <th> Mobile </th>
+                                    <th> IDNumber </th>
+                                    <th> DateOfIssue </th>
+                                    <th> PlaceOfIssue </th>
+                                    <th> Gender </th>
+                                    <th> Image </th>
+                                    <th> Position </th>
+                                    <th> Email </th>
+
+                                </tr>
+                            </tfoot>
+                            <tbody text>
+                                @if (listemps.Count() > 0)
+                                {
+
+                                    foreach (var emp in listemps)
+                                    {
+                                <tr class="even pointer">
+                                    <td class="last action-link">
+                                        <a class="btn btn-default" href="#"><i class="glyphicon glyphicon-new-window"></i></a>
+                                        <a class="btn btn-danger" href="#"><i class="glyphicon glyphicon-remove"></i></a>
+                                    </td>
+                                    <td class="">@emp.CodeEmp</td>
+                                    <td class="">@emp.IDEmp</td>
+                                    <td class="">@emp.IDDept</td>
+                                    <td class="">@emp.IDComp</td>
+                                    <td class="">@emp.FirstName</td>
+                                    <td class="">@emp.LastName</td>
+                                    <td class="">@emp.DateOfBirth.ToShortDateString()</td>
+                                    <td class="">@emp.PlaceOfBirth</td>
+                                    <td class=""> @emp.EthnicGroup </td>
+                                    <td class=""> @emp.Religion</td>
+                                    <td class=""> @emp.PlaceOfOrigin</td>
+                                    <td class=""> @emp.Nationality </td>
+                                    <td class=""> @emp.CurrentAddress </td>
+                                    <td class=""> @emp.PermanentAddress </td>
+                                    <td class=""> @emp.Telephone </td>
+                                    <td class=""> @emp.Mobile </td>
+                                    <td class=""> @emp.IDNumber </td>
+                                    <td class=""> @emp.DateOfIssue </td>
+                                    <td class=""> @emp.PlaceOfIssue </td>
+                                    <td class=""> @emp.Gender </td>
+                                    <td class=""> @emp.Image </td>
+                                    <td class=""> @emp.Position </td>
+                                    <td class=""> @emp.Email </td>
+
+                                </tr>
+                                    }
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.ActionLink("Create Employee", "CreateEmployee","Employee", new { @class= "btn btn-primary clickToAdd" })
+    <div class="employeePanel"></div>
+
+</div>
+@section scripts{
+
+    <script src="~/Scripts/tdhscript.js"></script>
+}

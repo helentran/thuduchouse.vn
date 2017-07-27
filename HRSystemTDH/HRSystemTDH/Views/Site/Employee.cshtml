@@ -1,0 +1,120 @@
+﻿@using HRSystemTDH.Models
+@model IEnumerable<Employee>
+@{
+    ViewBag.Title = "Employee";
+    var listemps = Model != null ? Model : new List<Employee>();
+}
+@section style{
+<link href="~/Content/jquerydatatable/datatables.min.css" rel="stylesheet" />
+}
+<div class="right_col" role="main">
+    
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Employee </h3>
+        </div>
+
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <small>Found <code>@listemps.Count()</code>  employee in system!</small>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Settings 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    @*<p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>*@
+                    <div class="table-responsive">
+                        <table  id="TableGroup"  class="table table-striped jambo_table bulk_action">
+                            <thead>
+                                <tr class="headings">
+                                    <th class="column-title">ID</th>
+                                    <th class="column-title">Code</th>
+                                    <th class="column-title">First Name</th>
+                                    <th class="column-title">Last Name</th>
+                                    <th class="column-title">D.O.B</th>
+                                    <th class="column-title">Place of Birth</th>
+                                    <th class="column-title no-link last">
+                                        <span class="nobr">Action</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Code</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>D.O.B</th>
+                                    <th>Place</th>
+                                    <th class="colhidden"></th>
+                                  
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @if (listemps.Count() > 0)
+                                {
+
+                                    foreach (var emp in listemps)
+                                    {
+                                        <tr class="even pointer">
+                                            <td class="">@emp.IDEmp</td>
+                                            <td class="">@emp.CodeEmp</td>
+                                            <td class="">@emp.FirstName</td>
+                                            <td class="">@emp.LastName</td>
+                                            <td class="">@emp.DateOfBirth.ToShortDateString()</td>
+                                            <td class="">@emp.PlaceOfBirth</td>
+           
+                                            <td class="last">
+                                                <a class="btn btn-default" href="#"><i class="glyphicon glyphicon-new-window"></i></a>
+                                                <a class="btn btn-danger" href="#"><i class="glyphicon glyphicon-remove"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+@section scripts{
+@*<script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+<script src="~/Content/vendors/iCheck/icheck.min.js"></script>*@
+<script src="~/Content/jquerydatatable/datatables.min.js"></script>
+}
+

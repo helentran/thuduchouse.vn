@@ -1,0 +1,65 @@
+﻿@using HRSystemTDH.Models
+@model MenuEntry
+@{
+    var model = Model?? new MenuEntry();
+
+    var newmodel = new MenuEntry(); 
+}
+<div class="col-sm-6">
+    <h4>Edit Menu</h4>
+    @using (Html.BeginForm("EditMenu", "Site", FormMethod.Post, new { id = "frm-Menu" }))
+    {
+        <div>
+            <label>ID</label>
+            @Html.TextBoxFor(x => x.ID, model.ID)
+        </div>
+    <div>
+        <label>Name</label>
+        @Html.TextBoxFor(x=>x.Name,model.Name)
+    </div>
+    <div>
+        <label>Note</label>
+        @Html.TextBoxFor(x => x.Note,model.Note)
+    </div>
+    <div>
+        <label>Index</label>
+        @Html.TextBoxFor(x => x.Index,model.Note)
+
+    </div>
+    <div>
+        <label>Class</label>
+        @Html.TextBoxFor(x => x.Class,model.Class)
+
+    </div>
+    <div>
+        <label>Slug</label>
+        @Html.TextBoxFor(x => x.Slug,model.Slug)
+
+    </div>
+    <div>
+        <label>ParentSlug</label>
+        @Html.TextBoxFor(x => x.ParentSlugID,model.ParentSlugID)
+
+    </div>
+    <div>
+        <label>Action</label>
+        @Html.TextBoxFor(x => x.Action,model.Action)
+
+    </div>
+    <div>
+        <label>Image</label>
+        @Html.TextBoxFor(x => x.Image,model.Image)
+
+
+    </div>
+    <div>
+        <label>Active</label>
+        @Html.TextBoxFor(x => x.Active,model.Active)
+
+    </div>
+    <div class="">
+        <button type="submit">Save</button>
+        <button type="button">Cancel</button>
+    </div>
+    }
+</div>

@@ -1,0 +1,78 @@
+﻿@model HRSystemTDH.Models.Account
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="login_wrapper">
+    <div class="animate form login_form">
+        <section class="login_content">
+            <h1>HELEN</h1>
+            @using (Html.BeginForm("Login", "Manage", FormMethod.Post, new { @id = "frm-login", @Class = "row uk-form-body uk-form-head" }))
+            {
+                @Html.ValidationSummary(true);
+                <div class="text-left">
+                    @Html.Label("Username or email address")
+                    @*@Html.TextBoxFor(m=>)*@
+                    @Html.TextBoxFor(m => m.UserName, new { placeholder = "Username", @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.UserName)
+
+                </div>
+                <div class="text-left">
+                    @Html.Label("Password")
+
+                    <a class="reset_pass pull-right" href="#">Lost your password?</a>
+                    @Html.PasswordFor(m => m.Password, new { placeholder = "Password", @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+                <div>
+                    <button class="btn btn-success submit col-xs-12" type="submit">Log in</button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="separator">
+                    <label class="change_link">
+                        New to site?
+                        <a href="#signup" class="to_register"> Create Account </a>
+                    </label>
+
+                </div>
+            }
+            <div class="clearfix"></div>
+            <br /><br />
+            <div>
+                <p>©2016. <ul class="list-unstyled list-inline"><li>Terms</li><li>Privacy</li><li>Contact</li></ul></p>
+            </div>
+        </section>
+    </div>
+    @*<div id="register" class="animate form registration_form">
+        <section class="login_content">
+            <form>
+                <h1>Create Account</h1>
+                <div>
+                    <input type="text" class="form-control" placeholder="Username" required="" />
+                </div>
+                <div>
+                    <input type="email" class="form-control" placeholder="Email" required="" />
+                </div>
+                <div>
+                    <input type="password" class="form-control" placeholder="Password" required="" />
+                </div>
+                <div>
+                    <a class="btn btn-default submit" href="index.html">Submit</a>
+                </div>
+                <div class="clearfix"></div>
+                <div class="separator">
+                    <p class="change_link">
+                        Already a member ?
+                        <a href="#signin" class="to_register"> Log in </a>
+                    </p>
+                    <div class="clearfix"></div>
+                    <br /><br />
+                    <div>
+                        <p>©2016. <ul class="list-unstyled list-inline"><li>Terms</li><li>Privacy</li><li>Contact</li></ul></p>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>*@
+</div>
