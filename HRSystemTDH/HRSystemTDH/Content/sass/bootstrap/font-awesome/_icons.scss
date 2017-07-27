@@ -1,0 +1,14 @@
+.#{$fa-css-prefix}-user:before { content: $fa-var-user; }//9
+.#{$fa-css-prefix}-cog:before { content: $fa-var-cog; }//23
+.#{$fa-css-prefix}-inbox:before { content: $fa-var-inbox; }//32
+.#{$fa-css-prefix}-edit:before,
+.#{$fa-css-prefix}-pencil-square-o:before { content: $fa-var-pencil-square-o; }//73,74
+.#{$fa-css-prefix}-comments:before { content: $fa-var-comments; }//140
+.#{$fa-css-prefix}-sign-out:before { content: $fa-var-sign-out; }//145
+.#{$fa-css-prefix}-group:before,
+.#{$fa-css-prefix}-users:before { content: $fa-var-users; }
+.#{$fa-css-prefix}-comments-o:before { content: $fa-var-comments-o; }//235
+.#{$fa-css-prefix}-desktop:before { content: $fa-var-desktop; }//267
+.#{$fa-css-prefix}-star-half-o:before { content: $fa-var-star-half-o; }//295
+.#{$fa-css-prefix}-plus-square-o:before { content: $fa-var-plus-square-o; }//420
+.#{$fa-css-prefix}-user-secret:before { content: $fa-var-user-secret; }//569

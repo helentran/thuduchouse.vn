@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThuDucHouse</title>
+
+    @Styles.Render("~/Content/css")
+    <!-- FancyBox -->
+    @*@Scripts.Render("~/bundles/fancybox")*@
+
+    @RenderSection("style", required: false)
+
+  
+    <script src="//ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.6.2.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="@Url.Content("~/Scripts/respond.js")"></script>
+                <script type="text/javascript" src="@Url.Content("~/Scripts/html5.js")"></script>
+                <script src="@Url.Content("~/Scripts/html5shiv-printshiv.js")"></script>
+                <script type="text/javascript" src="@Url.Content("~/Scripts/css3-mediaqueries.js")"></script>
+                <style type="text/css"> html { overflow-y:auto;}</style>
+            <![endif]-->
+
+</head>
+<body class="nav-md">
+   
+       <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+
+                    <!-- menu profile quick info -->
+                    <div class="profile">
+                        <div class="profile_pic">
+                            <a href="@Url.Action("Index","Site")">
+                                <img src="@Url.Content("~/Content/images/logo100.jpg")" class="img-circle profile_img" />
+                            </a>
+                        </div>
+                        <div class="profile_info">
+                            <h2 style="font-weight:bold;">THUDUC HOUSE</h2>
+                            <span>HRSystem</span>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    @Html.Action("Menu")
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+            @Html.Partial("_Header")
+            <!-- page content -->
+            @RenderBody()
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+    <!-- Grab Google CDN's jQuery, fall back to local if offline -->
+    @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>*@
+   
+    <!-- Jquery Library -->
+    @Scripts.Render("~/bundles/jquery")
+    <!-- Validate -->
+    @Scripts.Render("~/bundles/validate")
+    <!-- Bootstrap.min -->
+    @Scripts.Render("~/bundles/bootstrap-min")
+    <!-- fancybox / ajax -->
+    @Scripts.Render("~/bundles/fancybox-ajax")
+    <!-- Theme Vendor -->
+   @RenderSection("themevendor_render", required: false)
+    <!-- DataTable -->
+    @Scripts.Render("~/bundles/dataTable.min")
+    <script src="~/Content/DataTables/js/buttons.colVis.min.js"></script>
+    <script src="~/Content/DataTables/js/dataTables.select.min.js"></script>
+    <script src="~/Content/DataTables/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/DataTables/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/DataTables/js/buttons.flash.min.js"></script>
+    <script src="~/Content/DataTables/js/jszip.min.js"></script>
+    <script src="~/Content/DataTables/js/pdfmake.min.js"></script>
+    <script src="~/Content/DataTables/js/vfs_fonts.js"></script>
+    <script src="~/Content/DataTables/js/buttons.html5.min.js"></script>
+    <script src="~/Content/DataTables/js/buttons.print.min.js"></script>
+
+  
+
+    @RenderSection("scripts", required: false)
+    
+
+
+
+</body>
+</html>
