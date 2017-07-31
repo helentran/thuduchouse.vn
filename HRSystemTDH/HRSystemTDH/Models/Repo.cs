@@ -149,7 +149,6 @@ namespace HRSystemTDH.Models
         }
         #endregion
 
-<<<<<<< HEAD
         #region Department
         public List<Department> GetDepartment()
         {
@@ -162,8 +161,6 @@ namespace HRSystemTDH.Models
         }
         #endregion
 
-=======
->>>>>>> 76fb5c12c915d59871a1f0459dab4f3e9b3ed29d
         #region Account
         public Account GetAccount(string username, string password)
         {

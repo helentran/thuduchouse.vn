@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-<<<<<<< HEAD
 using System.Web.Mvc;
-=======
->>>>>>> 76fb5c12c915d59871a1f0459dab4f3e9b3ed29d
 
 namespace HRSystemTDH.Models
 {
@@ -14,11 +11,8 @@ namespace HRSystemTDH.Models
     {
         public int IDEmp { get; set; }//1
 
-<<<<<<< HEAD
         public List<SelectListItem> Depatments { get; set; }
 
-=======
->>>>>>> 76fb5c12c915d59871a1f0459dab4f3e9b3ed29d
         [Required]
         public string IDDept { get; set; }//2
 
@@ -30,20 +24,12 @@ namespace HRSystemTDH.Models
 
         [Required]
         [StringLength(25, MinimumLength = 2, ErrorMessage = "The  first name must be between {2} and  {1}  characters long.")]
-<<<<<<< HEAD
         //[RegularExpression(@"^([a-zA-Z.&'-]+)$", ErrorMessage = "Numbers and special characters are not allowed in the first name.")]
-=======
-        [RegularExpression(@"^([a-zA-Z.&'-]+)$", ErrorMessage = "Numbers and special characters are not allowed in the first name.")]
->>>>>>> 76fb5c12c915d59871a1f0459dab4f3e9b3ed29d
         public string FirstName { get; set; }//5
 
         [Required]
         [StringLength(25, MinimumLength = 2, ErrorMessage = "The last name must be between {2} and  {1}  characters long.")]
-<<<<<<< HEAD
         //[RegularExpression(@"^([a-zA-Z.&'-]+)$", ErrorMessage = "Numbers and special characters are not allowed in the last name.")]
-=======
-        [RegularExpression(@"^([a-zA-Z.&'-]+)$", ErrorMessage = "Numbers and special characters are not allowed in the last name.")]
->>>>>>> 76fb5c12c915d59871a1f0459dab4f3e9b3ed29d
         public string LastName { get; set; }//6
 
         public DateTime DateOfBirth { get; set; }//7
@@ -87,15 +73,11 @@ namespace HRSystemTDH.Models
         [EmailAddress]
         [StringLength(100, MinimumLength = 2, ErrorMessage = "The {0} must be between {2} and  {1}  characters long.")]
         public string Email { get; set; }//23
-<<<<<<< HEAD
         public Employee() {
 
             IDDept = new 
 
         }
-=======
-        public Employee() { }
->>>>>>> 76fb5c12c915d59871a1f0459dab4f3e9b3ed29d
 
     }
 }

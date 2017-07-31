@@ -1,8 +1,5 @@
 ﻿using HRSystemTDH.Models;
-<<<<<<< HEAD
 using System.Collections.Generic;
-=======
->>>>>>> 76fb5c12c915d59871a1f0459dab4f3e9b3ed29d
 using System.Web.Mvc;
 
 namespace HRSystemTDH.Controllers
@@ -21,7 +18,6 @@ namespace HRSystemTDH.Controllers
         {
             return PartialView("CreateEmployee");
         }
-<<<<<<< HEAD
         [HttpGet]
         public ActionResult CreateEmployee()
         {
@@ -31,14 +27,11 @@ namespace HRSystemTDH.Controllers
             };
             return View();
         }
-=======
->>>>>>> 76fb5c12c915d59871a1f0459dab4f3e9b3ed29d
         [HttpPost]
         public ActionResult CreateEmployee(Employee emp)
         {
             return View();
         }
-<<<<<<< HEAD
 
         private IEnumerable<SelectListItem> GetDepartments()
         {
@@ -56,8 +49,6 @@ namespace HRSystemTDH.Controllers
         }
 
 
-=======
->>>>>>> 76fb5c12c915d59871a1f0459dab4f3e9b3ed29d
         [HttpGet]
         [ActionName("employee-update")]
         public ActionResult EmployeeUpdate(int id)
