@@ -165,8 +165,12 @@
     <Compile Include="Helpers\WebHelper.cs" />
     <Compile Include="Helpers\XMLMenuHelpers.cs" />
     <Compile Include="Models\Account.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Company.cs" />
+=======
+    <Compile Include="Models\Apartment.cs" />
+>>>>>>> 76fb5c12c915d59871a1f0459dab4f3e9b3ed29d
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Repo.cs" />
@@ -4570,7 +4574,10 @@
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Employee\CreateEmployee.cshtml" />
     <Content Include="Views\Employee\CreateEmployeeBK.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Site\Employee.cshtml" />
+=======
+>>>>>>> 76fb5c12c915d59871a1f0459dab4f3e9b3ed29d
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

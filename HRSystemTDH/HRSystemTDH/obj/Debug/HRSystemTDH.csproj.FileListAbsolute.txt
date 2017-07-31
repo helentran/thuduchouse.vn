@@ -53,6 +53,7 @@ F:\WORKING\THUDUCHOUSE\HRSystem\HRSystemTDH\HRSystemTDH\bin\Newtonsoft.Json.xml
 F:\WORKING\THUDUCHOUSE\HRSystem\HRSystemTDH\HRSystemTDH\obj\Debug\HRSystemTDH.csprojResolveAssemblyReference.cache
 F:\WORKING\THUDUCHOUSE\HRSystem\HRSystemTDH\HRSystemTDH\obj\Debug\HRSystemTDH.dll
 F:\WORKING\THUDUCHOUSE\HRSystem\HRSystemTDH\HRSystemTDH\obj\Debug\HRSystemTDH.pdb
+<<<<<<< HEAD
 F:\WORKING\thuduchouse.vn.git\HRSystemTDH\HRSystemTDH\bin\ApplicationInsights.config
 F:\WORKING\thuduchouse.vn.git\HRSystemTDH\HRSystemTDH\bin\roslyn\csc.exe
 F:\WORKING\thuduchouse.vn.git\HRSystemTDH\HRSystemTDH\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -163,3 +164,5 @@ F:\WORKING\thuduchouse.vn\HRSystemTDH\HRSystemTDH\bin\Newtonsoft.Json.xml
 F:\WORKING\thuduchouse.vn\HRSystemTDH\HRSystemTDH\obj\Debug\HRSystemTDH.csprojResolveAssemblyReference.cache
 F:\WORKING\thuduchouse.vn\HRSystemTDH\HRSystemTDH\obj\Debug\HRSystemTDH.dll
 F:\WORKING\thuduchouse.vn\HRSystemTDH\HRSystemTDH\obj\Debug\HRSystemTDH.pdb
+=======
+>>>>>>> 76fb5c12c915d59871a1f0459dab4f3e9b3ed29d
