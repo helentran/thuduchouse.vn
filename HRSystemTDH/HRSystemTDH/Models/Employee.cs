@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace HRSystemTDH.Models
     {
         public int IDEmp { get; set; }//1
 
-        public List<SelectListItem> Depatments { get; set; }
+        public IEnumerable<SelectListItem> Depatments { get; set; }
 
         [Required]
         public string IDDept { get; set; }//2
@@ -73,10 +74,19 @@ namespace HRSystemTDH.Models
         [EmailAddress]
         [StringLength(100, MinimumLength = 2, ErrorMessage = "The {0} must be between {2} and  {1}  characters long.")]
         public string Email { get; set; }//23
-        public Employee() {
 
-            IDDept = new 
-
+        public Employee(List<Department> departments) {
+            this.Depatments = GetDepartments(departments);
+        }
+        public static IEnumerable<SelectListItem> GetDepartments( List<Department> departments)
+        {
+            var roles = departments.Select(x =>
+                                new SelectListItem
+                                {
+                                    Value = x.ID.ToString(),
+                                    Text = x.Name
+                                });
+            return new SelectList(roles, "Value", "Text");
         }
 
     }

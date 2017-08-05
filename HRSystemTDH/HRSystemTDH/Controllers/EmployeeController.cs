@@ -1,5 +1,6 @@
 ﻿using HRSystemTDH.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace HRSystemTDH.Controllers
@@ -21,33 +22,14 @@ namespace HRSystemTDH.Controllers
         [HttpGet]
         public ActionResult CreateEmployee()
         {
-            var model = new Employee
-            {
-                Depatments = repo.GetDepartment()
-            };
-            return View();
+            var model = new Employee(repo.GetDepartment());
+            return View(model);
         }
         [HttpPost]
         public ActionResult CreateEmployee(Employee emp)
         {
             return View();
         }
-
-        private IEnumerable<SelectListItem> GetDepartments()
-        {
-            var dbUserRoles = new DbUserRoles();
-            var roles = dbUserRoles
-                        .GetRoles()
-                        .Select(x =>
-                                new SelectListItem
-                                {
-                                    Value = x.UserRoleId.ToString(),
-                                    Text = x.UserRole
-                                });
-
-            return new SelectList(roles, "Value", "Text");
-        }
-
 
         [HttpGet]
         [ActionName("employee-update")]
