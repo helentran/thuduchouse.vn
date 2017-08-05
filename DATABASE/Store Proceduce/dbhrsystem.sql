@@ -59,7 +59,7 @@ CREATE TABLE Employee(
 	EthnicGroup		nvarchar(20) NULL,
 	Religion		nvarchar(20) NULL,
 	PlaceOfOrigin	nvarchar(50) NULL,
-	Nationnality	nvarchar(20) NULL,
+	Nationality	nvarchar(20) NULL,
 	CurrentAddress	nvarchar(200) NULL,
 	ResidentAddress nvarchar(200) NULL,
 	Telephone		varchar(18) NULL,

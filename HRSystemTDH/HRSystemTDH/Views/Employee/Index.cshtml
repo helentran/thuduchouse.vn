@@ -62,9 +62,6 @@
                         <table id="TableGroup" class="table-responsive table table-striped jambo_table bulk_action">
                             <thead>
                                 <tr class="headings">
-                                    <th class="column-title no-link last">
-                                        <span class="nobr">Action</span>
-                                    </th>
                                     <th class="column-title">ID</th>
                                     <th class="column-title">Code</th>
                                     <th class="column-title">IDDept</th>
@@ -88,11 +85,13 @@
                                     <th class="column-title"> Image </th>
                                     <th class="column-title"> Position </th>
                                     <th class="column-title"> Email </th>
+                                    <th class="column-title no-link last">
+                                        <span class="nobr">Action</span>
+                                    </th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th class="colhidden"></th>
                                     <th>ID</th>
                                     <th>Code</th>
                                     <th>IDDept</th>
@@ -116,7 +115,7 @@
                                     <th> Image </th>
                                     <th> Position </th>
                                     <th> Email </th>
-
+                                    <th class="colhidden"></th>
                                 </tr>
                             </tfoot>
                             <tbody text>
@@ -126,33 +125,33 @@
                                     foreach (var emp in listemps)
                                     {
                                 <tr class="even pointer">
-                                    <td class="last action-link">
-                                        <a class="btn btn-default" href="#"><i class="glyphicon glyphicon-new-window"></i></a>
-                                        <a class="btn btn-danger" href="#"><i class="glyphicon glyphicon-remove"></i></a>
-                                    </td>
-                                    <td class="">@emp.CodeEmp</td>
                                     <td class="">@emp.IDEmp</td>
+                                    <td class="">@emp.CodeEmp</td>
                                     <td class="">@emp.IDDept</td>
                                     <td class="">@emp.IDComp</td>
                                     <td class="">@emp.FirstName</td>
                                     <td class="">@emp.LastName</td>
                                     <td class="">@emp.DateOfBirth.ToShortDateString()</td>
                                     <td class="">@emp.PlaceOfBirth</td>
-                                    <td class=""> @emp.EthnicGroup </td>
-                                    <td class=""> @emp.Religion</td>
-                                    <td class=""> @emp.PlaceOfOrigin</td>
-                                    <td class=""> @emp.Nationality </td>
-                                    <td class=""> @emp.CurrentAddress </td>
-                                    <td class=""> @emp.PermanentAddress </td>
-                                    <td class=""> @emp.Telephone </td>
-                                    <td class=""> @emp.Mobile </td>
-                                    <td class=""> @emp.IDNumber </td>
-                                    <td class=""> @emp.DateOfIssue </td>
-                                    <td class=""> @emp.PlaceOfIssue </td>
-                                    <td class=""> @emp.Gender </td>
-                                    <td class=""> @emp.Image </td>
-                                    <td class=""> @emp.Position </td>
-                                    <td class=""> @emp.Email </td>
+                                    <td class="">@emp.EthnicGroup </td>
+                                    <td class="">@emp.Religion</td>
+                                    <td class="">@emp.PlaceOfOrigin</td>
+                                    <td class="">@emp.Nationality </td>
+                                    <td class="">@emp.CurrentAddress </td>
+                                    <td class="">@emp.ResidentAddress </td>
+                                    <td class="">@emp.Telephone </td>
+                                    <td class="">@emp.Mobile </td>
+                                    <td class="">@emp.IDNumber </td>
+                                    <td class="">@emp.DateOfIssue </td>
+                                    <td class="">@emp.PlaceOfIssue </td>
+                                    <td class="">@emp.Gender </td>
+                                    <td class="">@emp.Image </td>
+                                    <td class="">@emp.Position </td>
+                                    <td class="">@emp.Email </td>
+                                    <td class="last action-link">
+                                        <a class="btn btn-default" href="#"><i class="glyphicon glyphicon-new-window"></i></a>
+                                        <a class="btn btn-danger" href="#"><i class="glyphicon glyphicon-remove"></i></a>
+                                    </td>
 
                                 </tr>
                                     }

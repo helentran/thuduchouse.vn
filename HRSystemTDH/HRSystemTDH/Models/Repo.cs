@@ -110,7 +110,7 @@ namespace HRSystemTDH.Models
             var stafflist = new List<Employee>();
             using (var conn = DB.HRSystem)
             {
-                stafflist = conn.Query<Employee>("[spm_Employee]", new { sql = "select" }, commandType: CommandType.StoredProcedure).ToList();
+                stafflist = conn.Query<Employee>("spm_Employee", new { sql = "select" }, commandType: CommandType.StoredProcedure).ToList();
             }
             return stafflist;
         }
@@ -132,9 +132,9 @@ namespace HRSystemTDH.Models
                     EthnicGroup = emp.EthnicGroup,
                     Religion = emp.Religion,
                     PlaceOfOrigin = emp.PlaceOfOrigin,
-                    Nationnality = emp.Nationality,
+                    Nationality = emp.Nationality,
                     CurrentAddress = emp.CurrentAddress,
-                    PermanentAddress = emp.PermanentAddress,
+                    ResidentAddress = emp.ResidentAddress,
                     Telephone = emp.Telephone,
                     Mobile = emp.Mobile,
                     IDNumber = emp.IDNumber,

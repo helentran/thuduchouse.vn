@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace HRSystemTDH.Models
     {
         public int IDEmp { get; set; }//1
 
-        public List<SelectListItem> Depatments { get; set; }
+        public IEnumerable<SelectListItem> Depatments { get; set; }
 
         [Required]
         public string IDDept { get; set; }//2
@@ -45,7 +46,7 @@ namespace HRSystemTDH.Models
 
         [Required]
         [StringLength(200, MinimumLength = 2, ErrorMessage = "The {0} must be between {2} and  {1}  characters long.")]
-        public string PermanentAddress { get; set; }//14
+        public string ResidentAddress { get; set; }//14
 
         [DataType(DataType.PhoneNumber)]
         [StringLength(20, MinimumLength = 10, ErrorMessage = "The {0} must be between {2} and  {1}  characters long.")]
@@ -53,7 +54,7 @@ namespace HRSystemTDH.Models
                    ErrorMessage = "Please re-send using valid digit numbers [0-9]. ")]
         public string Telephone { get; set; }//15
 
-        [DataType(DataType.PhoneNumber)]
+        //[DataType(DataType.PhoneNumber)]
         [StringLength(20, MinimumLength = 10, ErrorMessage = "The {0} must be between {2} and  {1}  characters long.")]
         [RegularExpression(@"@^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$| |^([0-9\(\)\/\+ \-]*)$",
                    ErrorMessage = "Please re-send using valid digit numbers [0-9]. ")]
@@ -73,10 +74,23 @@ namespace HRSystemTDH.Models
         [EmailAddress]
         [StringLength(100, MinimumLength = 2, ErrorMessage = "The {0} must be between {2} and  {1}  characters long.")]
         public string Email { get; set; }//23
-        public Employee() {
 
-            IDDept = new 
+        public Employee()
+        {
 
+        }
+        public Employee(List<Department> departments) {
+            this.Depatments = GetDepartments(departments);
+        }
+        public static IEnumerable<SelectListItem> GetDepartments( List<Department> departments)
+        {
+            var roles = departments.Select(x =>
+                                new SelectListItem
+                                {
+                                    Value = x.ID.ToString(),
+                                    Text = x.Name
+                                });
+            return new SelectList(roles, "Value", "Text");
         }
 
     }

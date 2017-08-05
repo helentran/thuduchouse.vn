@@ -30,17 +30,13 @@
              },
 
             'colvisRestore',
-
-
                 {
                     className: 'addBtn',
                     text: 'Add New',
                     name: 'add'        // do not change name
-
                 }
-
         ],
-        "columnDefs": [{ "visible": false, "targets": [1, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21] }]
+        "columnDefs": [{ "visible": false, "targets": [1,2, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21] }]
     });
     tablegroup.columns().every(function () {
         var that = this;
