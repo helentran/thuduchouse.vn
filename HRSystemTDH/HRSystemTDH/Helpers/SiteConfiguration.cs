@@ -21,6 +21,9 @@ namespace HRSystemTDH.Helpers
         //public static Programs Site_Competition;
         public static WebsiteSettings Site_Settings;
         public static Repo Site_Repo;
+        public static List<Department> _department;
+        public static List<Company> _company;
+
         public static void StoreSettings(HttpApplicationState application)
         {
             LoadTPFSettings();

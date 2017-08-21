@@ -13,6 +13,7 @@ namespace HRSystemTDH.Models
         public int IDEmp { get; set; }//1
 
         public IEnumerable<SelectListItem> Depatments { get; set; }
+        public IEnumerable<SelectListItem> Companies { get; set; }
 
         [Required]
         public string IDDept { get; set; }//2

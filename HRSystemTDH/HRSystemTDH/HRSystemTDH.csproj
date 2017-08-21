@@ -27,6 +27,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -154,6 +155,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Binders\Filters.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -161,6 +163,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Constant.cs" />
     <Compile Include="Helpers\SiteConfiguration.cs" />
     <Compile Include="Helpers\WebHelper.cs" />
     <Compile Include="Helpers\XMLMenuHelpers.cs" />
@@ -4571,6 +4574,7 @@
     <Content Include="Views\Employee\CreateEmployee.cshtml" />
     <Content Include="Views\Employee\CreateEmployeeBK.cshtml" />
     <Content Include="Views\Site\Employee.cshtml" />
+    <Content Include="Views\Employee\EmployeeUpdate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GoldenLogistic.Helpers
+namespace HRSystemTDH.Helpers
 {
     public static class Constant
     {

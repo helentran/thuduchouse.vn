@@ -110,7 +110,10 @@ namespace HRSystemTDH.Models
             var stafflist = new List<Employee>();
             using (var conn = DB.HRSystem)
             {
-                stafflist = conn.Query<Employee>("spm_Employee", new { sql = "select" }, commandType: CommandType.StoredProcedure).ToList();
+                if (idemp != 0)
+                    stafflist = conn.Query<Employee>("spm_Employee", new { sql = "select", IDEmp = idemp }, commandType: CommandType.StoredProcedure).ToList();
+                else
+                    stafflist = conn.Query<Employee>("spm_Employee", new { sql = "select" }, commandType: CommandType.StoredProcedure).ToList();
             }
             return stafflist;
         }
@@ -121,6 +124,38 @@ namespace HRSystemTDH.Models
                 int list = conn.Execute("[spm_Employee]", new
                 {
                     sql = "insert",
+                    IDDept = emp.IDDept,
+                    IDComp = emp.IDComp,
+                    CodeEmp = emp.CodeEmp,
+                    FirstName = emp.FirstName,
+                    LastName = emp.LastName,
+                    DateOfBirth = emp.DateOfBirth,
+                    PlaceOfBirth = emp.PlaceOfBirth,
+                    EthnicGroup = emp.EthnicGroup,
+                    Religion = emp.Religion,
+                    PlaceOfOrigin = emp.PlaceOfOrigin,
+                    Nationality = emp.Nationality,
+                    CurrentAddress = emp.CurrentAddress,
+                    ResidentAddress = emp.ResidentAddress,
+                    Telephone = emp.Telephone,
+                    Mobile = emp.Mobile,
+                    IDNumber = emp.IDNumber,
+                    DateOfIssue = emp.DateOfIssue,
+                    PlaceOfIssue = emp.PlaceOfIssue,
+                    Gender = emp.Gender,
+                    Image = emp.Image,
+                    Position = emp.Position,
+                    Email = emp.Email
+                }, commandType: CommandType.StoredProcedure);
+            }
+        }
+        public void UpdateEmployee(Employee emp)
+        {
+            using (var conn = DB.HRSystem)
+            {
+                int list = conn.Execute("[spm_Employee]", new
+                {
+                    sql = "update",
                     IDEmp = emp.IDEmp,
                     IDDept = emp.IDDept,
                     IDComp = emp.IDComp,
@@ -150,7 +185,7 @@ namespace HRSystemTDH.Models
         #endregion
 
         #region Department
-        public List<Department> GetDepartment()
+        public List<Department> GetDepartments()
         {
             var stafflist = new List<Department>();
             using (var conn = DB.HRSystem)
@@ -161,13 +196,50 @@ namespace HRSystemTDH.Models
         }
         #endregion
 
+        #region Company
+        public List<Company> GetCompanies()
+        {
+            var stafflist = new List<Company>();
+            using (var conn = DB.HRSystem)
+            {
+                stafflist = conn.Query<Company>("[spm_Company]", new { sql = "select" }, commandType: CommandType.StoredProcedure).ToList();
+            }
+            return stafflist;
+        }
+        public Company GetCompany(int id)
+        {
+            var stafflist = new Company();
+            using (var conn = DB.HRSystem)
+            {
+                    stafflist = conn.Query<Company>("[spm_Company]", new { sql = "select", ID = id }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+            return stafflist;
+        }
+        public void UpdateCompany(Company com)
+        {
+            using (var conn = DB.HRSystem)
+            {
+                conn.Execute("spm_Company", new
+                {
+                    sql = "update",
+                    Name = com.Name,
+                    CompanyType = com.CompanyType,
+                    Phone = com.Phone,
+                    Address = com.Address,
+                    Fax = com.Fax,
+                    Website = com.Website
+                }, commandType: CommandType.StoredProcedure);
+            }
+        }
+        #endregion
+
         #region Account
         public Account GetAccount(string username, string password)
         {
             using (var conn = DB.HRSystem)
             {
                 var data = new Account();
-                data = conn.Query<Account>("spm_Account", new { Username = username, Password = password, Action = "select" }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                data = conn.Query<Account>("spm_Account", new { sql = "select",Username = username, Password = password }, commandType: CommandType.StoredProcedure).FirstOrDefault();
 
                 return data;
             }

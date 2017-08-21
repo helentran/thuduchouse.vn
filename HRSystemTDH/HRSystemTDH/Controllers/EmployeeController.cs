@@ -1,4 +1,5 @@
-﻿using HRSystemTDH.Models;
+﻿using HRSystemTDH.Helpers;
+using HRSystemTDH.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -20,9 +21,21 @@ namespace HRSystemTDH.Controllers
             return PartialView("CreateEmployee");
         }
         [HttpGet]
-        public ActionResult CreateEmployee()
+        public ActionResult CreateEmployee(int? id)
         {
-            var model = new Employee(repo.GetDepartment());
+            var model = repo.GetEmployee((int)id).FirstOrDefault();
+            model.Depatments = SiteConfiguration._department.ToList().Select(x =>
+                                new SelectListItem
+                                {
+                                    Value = x.ID.ToString(),
+                                    Text = x.Name
+                                }); 
+            model.Companies = SiteConfiguration._company.ToList().Select(x =>
+                                new SelectListItem
+                                {
+                                    Value = x.ID.ToString(),
+                                    Text = x.Name
+                                });
             return View(model);
         }
         [HttpPost]
@@ -32,13 +45,25 @@ namespace HRSystemTDH.Controllers
         }
 
         [HttpGet]
-        [ActionName("employee-update")]
-        public ActionResult EmployeeUpdate(int id)
+        public ActionResult EmployeeUpdate(int? id)
         {
-            return View();
+            var model = repo.GetEmployee((int)id).FirstOrDefault();
+            model.Depatments = SiteConfiguration._department.ToList().Select(x =>
+                                new SelectListItem
+                                {
+                                    Value = x.ID.ToString(),
+                                    Text = x.Name
+                                });
+            model.Companies = SiteConfiguration._company.ToList().Select(x =>
+                                new SelectListItem
+                                {
+                                    Value = x.ID.ToString(),
+                                    Text = x.Name
+                                });
+            return View(model);
         }
+
         [HttpPost]
-        [ActionName("employee-update")]
         public ActionResult EmployeeUpdate(Employee emp)
         {
             return View();

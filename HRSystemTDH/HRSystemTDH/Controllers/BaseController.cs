@@ -10,6 +10,8 @@ namespace HRSystemTDH.Controllers
     public class BaseController : Controller
     {
         public Repo repo = SiteConfiguration.Site_Repo;
+        public List<Department> _department;
+
         protected override void Initialize(RequestContext requestContext)
         {
             base.Initialize(requestContext);
@@ -24,11 +26,14 @@ namespace HRSystemTDH.Controllers
             //{
             //    Session["PromotionSetting"] = SiteConfiguration.RegisterPromotion;
             //}
+            if (SiteConfiguration._department == null)
+                SiteConfiguration._department = repo.GetDepartments();
+            if (SiteConfiguration._company == null)
+                SiteConfiguration._company = repo.GetCompanies();
         }
         [ChildActionOnly]
         public ActionResult Menu()
         {
-            List<MenuEntry> all = new List<MenuEntry>();
             var menus = repo.GetMenuList(1);
             return View(menus);
         }

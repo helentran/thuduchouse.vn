@@ -218,3 +218,4 @@ F:\WORKING\TDH\HRSystemTDH\HRSystemTDH\bin\System.Web.WebPages.Deployment.xml
 F:\WORKING\TDH\HRSystemTDH\HRSystemTDH\bin\System.Web.WebPages.Razor.xml
 F:\WORKING\TDH\HRSystemTDH\HRSystemTDH\bin\Antlr3.Runtime.pdb
 F:\WORKING\TDH\HRSystemTDH\HRSystemTDH\bin\Newtonsoft.Json.xml
+F:\WORKING\TDH\HRSystemTDH\HRSystemTDH\obj\Debug\HRSystemTDH.csproj.CoreCompileInputs.cache
