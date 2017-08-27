@@ -23,19 +23,21 @@ namespace HRSystemTDH.Controllers
         [HttpGet]
         public ActionResult CreateEmployee(int? id)
         {
-            var model = repo.GetEmployee((int)id).FirstOrDefault();
-            model.Depatments = SiteConfiguration._department.ToList().Select(x =>
+            var model =  new Employee() {
+                Depatments = SiteConfiguration._department.Select(x =>
                                 new SelectListItem
                                 {
                                     Value = x.ID.ToString(),
                                     Text = x.Name
-                                }); 
-            model.Companies = SiteConfiguration._company.ToList().Select(x =>
+                                }),
+                Companies =SiteConfiguration._company.Select(x =>
                                 new SelectListItem
                                 {
                                     Value = x.ID.ToString(),
                                     Text = x.Name
-                                });
+                                })
+            };
+           
             return View(model);
         }
         [HttpPost]
