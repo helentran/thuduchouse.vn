@@ -40,8 +40,8 @@
                 <!--Code-->
                 <div class="form-group col-sm-3 pull-right">
                     @Html.LabelText("Code", false, "3")
-                    <div class="col-sm-9 col-xs-12"><input type="text" class="form-control" placeholder="Code"></div>
-                    @Html.TextBoxFor(m => m.CodeEmp, new { Class = "form-control", placeholder = "Code Employment" })
+                    <div class="col-sm-9 col-xs-12">@Html.TextBoxFor(m => m.CodeEmp, new { Class = "form-control", placeholder = "Code Employment" })</div>
+                    
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -161,11 +161,11 @@
                         <hr />
                     </div>
                     <div class="row col-sm-5">
-                        <div class="form-group">
+                        @*<div class="form-group">
                             <div class="col-xs-12">
                                 <input type="text" class="form-control" readonly="readonly" placeholder="Please put your name!...">
                             </div>
-                        </div>
+                        </div>*@
                         <!--Image-->
                         <div class="profile_img">
                             <div id="crop-avatar" class="text-center">
