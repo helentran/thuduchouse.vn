@@ -68,7 +68,7 @@ namespace HRSystemTDH.Models
 
         public DateTime DateOfIssue { get; set; }//18
         public string PlaceOfIssue { get; set; }//19
-        public bool Gender { get; set; }//20
+        public string Gender { get; set; }//20
         public string Image { get; set; }//21
         public string Position { get; set; }//22
 

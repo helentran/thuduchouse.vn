@@ -54,13 +54,12 @@
 
     });
     function GetViewEmployee() {
-        var action = "/Employee/GetViewEmployee";
-        $.fancybox({ type: "ajax", href: action + "?r=" + Math.random() });
-
+         var action = "/Employee/Index";
+         $.post(action, null, function (data) {});
     }
     $("#deleteBtn").click(function () {
         var ids = $("#TableGroup .pointer.selected").attr("id");
-        alert(ids);
+        //alert(ids);
         $.post("ajax/test.html", { id: "" }, function (data) {
             // $(".result").html(data);
         });

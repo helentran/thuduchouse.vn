@@ -179,11 +179,12 @@
                             <div class="col-sm-9">
                                 <div id="gender" class="btn-group" data-toggle="buttons">
                                     <label class="btn btn-default active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                        <input type="radio" name="gender" value="male" data-parsley-multiple="gender" data-parsley-id="12"> &nbsp; Male &nbsp;
+                                        <input type="radio" name="gender-radio" value="nam" data-parsley-multiple="gender" data-parsley-id="12"> &nbsp; Male &nbsp;
                                     </label>
                                     <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                        <input type="radio" name="gender" value="female" data-parsley-multiple="gender"> Female
+                                        <input type="radio" name="gender-radio" value="nữ" data-parsley-multiple="gender"> Female
                                     </label>
+                                    @Html.TextBoxFor(m => m.Gender, new { Class = "form-control", @hidden = "true" })
                                 </div>
                             </div>
                             @*<div class="col-sm-9">
@@ -244,7 +245,7 @@
                         <div class="form-group">
                             @Html.LabelText("Email", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" placeholder="Code">
+                                <input type="text" class="form-control" placeholder="Email">
                                 @Html.ValidationMessageFor(model => model.Email)
                             </div>
                         </div>

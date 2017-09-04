@@ -41,9 +41,10 @@ namespace HRSystemTDH.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult CreateEmployee(Employee emp)
+        public ActionResult CreateNewEmployee(Employee emp)
         {
-            return View();
+            repo.CreateEmployee(emp);
+            return RedirectToAction("Index", "Employee");
         }
 
         [HttpGet]
