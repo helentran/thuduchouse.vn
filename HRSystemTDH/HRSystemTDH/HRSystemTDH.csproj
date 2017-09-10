@@ -399,6 +399,7 @@
     <Content Include="Content\jquerydatatable\syntax\shCore.css" />
     <Content Include="Content\jquerydatatable\syntax\shCore.js" />
     <Content Include="Content\tdhstyle.css" />
+    <None Include="Content\tdhstyle.css.bak" />
     <Content Include="Content\vendors\animate.css\animate.css" />
     <Content Include="Content\vendors\animate.css\animate.min.css" />
     <Content Include="Content\vendors\animate.css\gulpfile.js" />

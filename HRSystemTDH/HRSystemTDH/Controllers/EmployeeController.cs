@@ -1,4 +1,5 @@
-﻿using HRSystemTDH.Helpers;
+﻿using GoldenLogistic.Binders;
+using HRSystemTDH.Helpers;
 using HRSystemTDH.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace HRSystemTDH.Controllers
     public class EmployeeController : BaseController
     {
         // GET: Employee
-
+        [LoginFilter]
+        [Route("employee/index")]
         public ActionResult Index()
         {
             var list = repo.GetEmployee();
@@ -20,8 +22,10 @@ namespace HRSystemTDH.Controllers
         {
             return PartialView("CreateEmployee");
         }
+        [LoginFilter]
         [HttpGet]
-        public ActionResult CreateEmployee(int? id)
+        [Route("employee/createEmployee/")]
+        public ActionResult CreateEmployee()
         {
             var model =  new Employee() {
                 Depatments = SiteConfiguration._department.Select(x =>
@@ -40,7 +44,9 @@ namespace HRSystemTDH.Controllers
            
             return View(model);
         }
+        [LoginFilter]
         [HttpPost]
+        [Route("employee/createEmployee/")]
         public ActionResult CreateNewEmployee(Employee emp)
         {
             repo.CreateEmployee(emp);

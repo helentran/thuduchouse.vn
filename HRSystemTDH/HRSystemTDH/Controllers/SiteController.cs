@@ -1,4 +1,5 @@
-﻿using HRSystemTDH.Helpers;
+﻿using GoldenLogistic.Binders;
+using HRSystemTDH.Helpers;
 using HRSystemTDH.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,9 @@ namespace HRSystemTDH.Controllers
     public class SiteController : BaseController
     {
         // GET: Site
-        protected int WebID = 1;       
+        protected int WebID = 1;
+        [LoginFilter]
+        [Route("")]
         public ActionResult Index()
         {
             return View();
@@ -94,16 +97,20 @@ namespace HRSystemTDH.Controllers
 
         #region Login
         [HttpGet]
+        [Route("login")]
         public ActionResult Login()
         {
             return View();
         }
         [HttpPost]
+        [Route("login")]
         public ActionResult Login(string username, string password)
         {
             var acc = repo.GetAccount(username,password);
             if (acc!=null)
             {
+                HttpContext.Session[Constant.SESSION_ACCOUNT] = acc;
+                HttpContext.Session[Constant.USER_PROFILE] = repo.GetEmployee(0,acc.CodeEmp).First();
                 return RedirectToAction("Index");
             }
             return View();

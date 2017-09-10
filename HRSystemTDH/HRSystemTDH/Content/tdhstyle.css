@@ -7917,3 +7917,6 @@ ul.notifications {
 .action-link, .table-responsive th {
   white-space: nowrap;
 }
+#login-page {
+	background: #ffffff;
+}

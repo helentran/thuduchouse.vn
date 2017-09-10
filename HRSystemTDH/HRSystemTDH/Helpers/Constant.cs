@@ -21,5 +21,7 @@ namespace HRSystemTDH.Helpers
 
         public const string SESSION_LANGUAGE = "SESSION_LANGUAGE";
 
+        public const string USER_PROFILE = "USER_PROFILE";
+
     }
 }

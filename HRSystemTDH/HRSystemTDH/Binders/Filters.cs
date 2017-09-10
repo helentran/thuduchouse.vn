@@ -13,7 +13,7 @@ namespace GoldenLogistic.Binders
             if (filterContext.HttpContext.Session[Constant.SESSION_ACCOUNT] == null)
             {
                 UrlHelper helper = new UrlHelper(filterContext.RequestContext);
-                var url = helper.Action("login", "manage");
+                var url = helper.Action("login", "site");
                 filterContext.RequestContext.HttpContext.Response.Redirect(url);
             }
         }

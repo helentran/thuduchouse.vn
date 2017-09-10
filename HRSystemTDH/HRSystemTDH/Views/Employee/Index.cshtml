@@ -9,7 +9,7 @@
     <link href="~/Content/jquerydatatable/datatables.min.css" rel="stylesheet" />
 }
 <div id="employee" class="right_col" role="main" style="">
-  
+
     <div class="page-title">
         <div class="title_left">
             <h3>Employee </h3>
@@ -17,12 +17,14 @@
 
         <div class="title_right">
             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                <div class="input-group">
+                @Html.ActionLink("Thêm mới nhân viên", "CreateEmployee", "Employee", new { @class = "btn btn-primary clickToAdd pull-right" })
+
+                @*<div class="input-group text-right">
                     <input type="text" class="form-control" placeholder="Search for...">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">Go!</button>
                     </span>
-                </div>
+                                </div>*@
             </div>
         </div>
     </div>
@@ -45,7 +47,7 @@
                                 <li>
                                     <a href="#">Settings 2</a>
                                 </li>
-                                
+
                             </ul>
                         </li>
                         <li>
@@ -124,36 +126,36 @@
 
                                     foreach (var emp in listemps)
                                     {
-                                <tr class="even pointer">
-                                    <td class="">@emp.IDEmp</td>
-                                    <td class="">@emp.CodeEmp</td>
-                                    <td class="">@emp.IDDept</td>
-                                    <td class="">@emp.IDComp</td>
-                                    <td class="">@emp.FirstName</td>
-                                    <td class="">@emp.LastName</td>
-                                    <td class="">@emp.DateOfBirth.ToShortDateString()</td>
-                                    <td class="">@emp.PlaceOfBirth</td>
-                                    <td class="">@emp.EthnicGroup </td>
-                                    <td class="">@emp.Religion</td>
-                                    <td class="">@emp.PlaceOfOrigin</td>
-                                    <td class="">@emp.Nationality </td>
-                                    <td class="">@emp.CurrentAddress </td>
-                                    <td class="">@emp.ResidentAddress </td>
-                                    <td class="">@emp.Telephone </td>
-                                    <td class="">@emp.Mobile </td>
-                                    <td class="">@emp.IDNumber </td>
-                                    <td class="">@emp.DateOfIssue </td>
-                                    <td class="">@emp.PlaceOfIssue </td>
-                                    <td class="">@emp.Gender </td>
-                                    <td class="">@emp.Image </td>
-                                    <td class="">@emp.Position </td>
-                                    <td class="">@emp.Email </td>
-                                    <td class="last action-link">
-                                        <a class="btn btn-default" href="@Url.Action("EmployeeUpdate",new { id = emp.IDEmp })"><i class="glyphicon glyphicon-new-window"></i></a>
-                                        <a class="btn btn-danger" href="#"><i class="glyphicon glyphicon-remove"></i></a>
-                                    </td>
+                                        <tr class="even pointer">
+                                            <td class="">@emp.IDEmp</td>
+                                            <td class="">@emp.CodeEmp</td>
+                                            <td class="">@emp.IDDept</td>
+                                            <td class="">@emp.IDComp</td>
+                                            <td class="">@emp.FirstName</td>
+                                            <td class="">@emp.LastName</td>
+                                            <td class="">@emp.DateOfBirth.ToShortDateString()</td>
+                                            <td class="">@emp.PlaceOfBirth</td>
+                                            <td class="">@emp.EthnicGroup </td>
+                                            <td class="">@emp.Religion</td>
+                                            <td class="">@emp.PlaceOfOrigin</td>
+                                            <td class="">@emp.Nationality </td>
+                                            <td class="">@emp.CurrentAddress </td>
+                                            <td class="">@emp.ResidentAddress </td>
+                                            <td class="">@emp.Telephone </td>
+                                            <td class="">@emp.Mobile </td>
+                                            <td class="">@emp.IDNumber </td>
+                                            <td class="">@emp.DateOfIssue </td>
+                                            <td class="">@emp.PlaceOfIssue </td>
+                                            <td class="">@emp.Gender </td>
+                                            <td class="">@emp.Image </td>
+                                            <td class="">@emp.Position </td>
+                                            <td class="">@emp.Email </td>
+                                            <td class="last action-link">
+                                                <a class="btn btn-default" href="@Url.Action("EmployeeUpdate",new { id = emp.IDEmp })"><i class="glyphicon glyphicon-new-window"></i></a>
+                                                <a class="btn btn-danger" href="#"><i class="glyphicon glyphicon-remove"></i></a>
+                                            </td>
 
-                                </tr>
+                                        </tr>
                                     }
                                 }
 
@@ -165,7 +167,7 @@
             </div>
         </div>
     </div>
-    @Html.ActionLink("Create Employee", "CreateEmployee","Employee", new { @class= "btn btn-primary clickToAdd" })
+
     <div class="employeePanel"></div>
 
 </div>

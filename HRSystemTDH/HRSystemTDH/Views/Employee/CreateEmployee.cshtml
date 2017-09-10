@@ -2,8 +2,6 @@
 @model Employee
 @{
     ViewBag.Title = "CreateEmployee";
-    //Layout = "~/Views/Shared/_Layout.cshtml";
-    // Layout = null;
 }
 <link href="~/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/tdhstyle.css" rel="stylesheet" />
@@ -17,30 +15,20 @@
             @using (Html.BeginForm("CreateNewEmployee", "Employee", FormMethod.Post, new { validated = "disable", autocomplete = "off", @class = "form-horizontal form-label-left" }))
             {
             <div class="x_title">
-                <h2>Form Basic Elements <small>different form elements</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
+                <ul class="pull-left nav navbar-right panel_toolbox">
                     <li>
-                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="#">Settings 1</a>
-                            </li>
-                            <li>
-                                <a href="#">Settings 2</a>
-                            </li>
-                        </ul>
+                        <a class="btn btn-default clickToAdd pull-left" href="/employee/index?Length=8">
+                            <i class="fa fa-backward"></i> Trở lại
+                        </a>
                     </li>
                     <li>
-                        <a class="close-link"><i class="fa fa-close"></i></a>
+                        <h1 style="margin:0px;">NHÂN VIÊN</h1>
                     </li>
                 </ul>
                 <!--Code-->
-                <div class="form-group col-sm-3 pull-right">
-                    @Html.LabelText("Code", false, "3")
-                    <div class="col-sm-9 col-xs-12">@Html.TextBoxFor(m => m.CodeEmp, new { Class = "form-control", placeholder = "Code Employment" })</div>
+                <div class="form-group col-sm-6 pull-right">
+                    @Html.LabelText("Mã nhân viên", false, "4")
+                    <div class="col-sm-7 col-xs-12">@Html.TextBoxFor(m => m.CodeEmp, new { Class = "form-control", placeholder = "Mã nhân viên" })</div>
                     
                 </div>
                 <div class="clearfix"></div>
@@ -53,9 +41,9 @@
                     <div class="row col-sm-7">
                         <div class="form-group">
                             <!--FirstName-->
-                            @Html.LabelText("First Name", false, "3")
+                            @Html.LabelText("Tên", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.FirstName, new { Class = "form-control", placeholder = "First Name" })
+                                @Html.TextBoxFor(m => m.FirstName, new { Class = "form-control", placeholder = "Tên" })
                                 @Html.ValidationMessageFor(model => model.FirstName)
                             </div>
 
@@ -63,98 +51,98 @@
 
                         <div class="form-group">
                             <!--Last Name-->
-                            @Html.LabelText("Last Name", false, "3")
+                            @Html.LabelText("Họ", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.LastName, new { Class = "form-control", placeholder = "Last Name" })
+                                @Html.TextBoxFor(m => m.LastName, new { Class = "form-control", placeholder = "Họ" })
                                 @Html.ValidationMessageFor(model => model.LastName)
                             </div>
                         </div>
                         <!--D.O.B-->
                         <div class="form-group">
-                            @Html.LabelText("D.O.B", false, "3")
+                            @Html.LabelText("Ngày sinh", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.DateOfBirth, new { Class = "form-control", placeholder = "Date of Birth", @data_inputmask = "'mask': '99/99/9999'" })
+                                @Html.TextBoxFor(m => m.DateOfBirth, new { Class = "form-control", placeholder = "Ngày sinh", @data_inputmask = "'alias': 'dd/mm/yyyy'", @data_mask= "data-mask" })
                                 @Html.ValidationMessageFor(model => model.DateOfBirth)
                             </div>
                         </div>
                         <!--Place of Birth-->
                         <div class="form-group">
-                            @Html.LabelText("Place of Birth", false, "3")
+                            @Html.LabelText("Nơi sinh", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.PlaceOfBirth, new { Class = "form-control", placeholder = "Place of Birth" })
+                                @Html.TextBoxFor(m => m.PlaceOfBirth, new { Class = "form-control", placeholder = "Nơi sinh" })
                                 @Html.ValidationMessageFor(model => model.PlaceOfBirth)
                             </div>
                         </div>
                         <!--Ethnic Group-->
                         <div class="form-group">
-                            @Html.LabelText("Ethnic Group", false, "3")
+                            @Html.LabelText("Dân tộc", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.EthnicGroup, new { Class = "form-control", placeholder = "Ethnic Group" })
+                                @Html.TextBoxFor(m => m.EthnicGroup, new { Class = "form-control", placeholder = "Dân tộc" })
                                 @Html.ValidationMessageFor(model => model.EthnicGroup)
                             </div>
                         </div>
                         <!--Religion-->
                         <div class="form-group">
-                            @Html.LabelText("Religion", false, "3")
+                            @Html.LabelText("Tôn giáo", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.Religion, new { Class = "form-control", placeholder = "Religion" })
+                                @Html.TextBoxFor(m => m.Religion, new { Class = "form-control", placeholder = "Tôn giáo" })
                                 @Html.ValidationMessageFor(model => model.Religion)
                             </div>
                         </div>
                         <!--Place of Origin-->
                         <div class="form-group">
-                            @Html.LabelText("Place of Origin", false, "3")
+                            @Html.LabelText("Quê quán", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.PlaceOfOrigin, new { Class = "form-control", placeholder = "Place of Origin" })
+                                @Html.TextBoxFor(m => m.PlaceOfOrigin, new { Class = "form-control", placeholder = "Quê quán" })
                                 @Html.ValidationMessageFor(model => model.PlaceOfOrigin)
                             </div>
                         </div>
                         <!--Nationality-->
                         <div class="form-group">
-                            @Html.LabelText("Nationality", false, "3")
+                            @Html.LabelText("Quốc tịch", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.Nationality, new { Class = "form-control", placeholder = "Nationality" })
+                                @Html.TextBoxFor(m => m.Nationality, new { Class = "form-control", placeholder = "Quốc tịch" })
                                 @Html.ValidationMessageFor(model => model.Nationality)
                             </div>
                         </div>
                         <!--Current Address-->
                         <div class="form-group">
-                            @Html.LabelText("Current Address", false, "3")
+                            @Html.LabelText("Địa chỉ hiện tại", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextAreaFor(m => m.CurrentAddress, new { Class = "form-control", placeholder = "Current Address" })
+                                @Html.TextAreaFor(m => m.CurrentAddress, new { Class = "form-control", placeholder = "Địa chỉ hiện tại" })
                                 @Html.ValidationMessageFor(model => model.CurrentAddress)
                             </div>
                         </div>
                         <!--President Address-->
                         <div class="form-group">
-                            @Html.LabelText("Permanent Address", false, "3")
+                            @Html.LabelText("Địa chỉ thường trú", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextAreaFor(m => m.ResidentAddress, new { Class = "form-control", placeholder = "Permanent Address" })
+                                @Html.TextAreaFor(m => m.ResidentAddress, new { Class = "form-control", placeholder = "Địa chỉ thường trú" })
                                 @Html.ValidationMessageFor(model => model.ResidentAddress)
                             </div>
                         </div>
                         <hr />
                         <!--ID Number-->
                         <div class="form-group">
-                            @Html.LabelText("ID Number", false, "3")
+                            @Html.LabelText("Số CMND", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.IDNumber, new { Class = "form-control", placeholder = "ID Number", onkeyup = "checkInput(this)" })
+                                @Html.TextBoxFor(m => m.IDNumber, new { Class = "form-control", placeholder = "Số CMND", onkeyup = "checkInput(this)" })
                                 @Html.ValidationMessageFor(model => model.IDNumber)
                             </div>
                         </div>
                         <!--Date of Issue-->
                         <div class="form-group">
-                            @Html.LabelText("Date of Issue", false, "3")
+                            @Html.LabelText("Ngày đăng ký", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.DateOfIssue, new { Class = "form-control", placeholder = "Date of Issue", @data_inputmask = "'mask': '99/99/9999'" })
+                                @Html.TextBoxFor(m => m.DateOfIssue, new { Class = "form-control", placeholder = "Ngày đăng ký", @data_inputmask = "'alias': 'dd/mm/yyyy'", @data_mask = "data-mask" })
                                 @Html.ValidationMessageFor(model => model.DateOfIssue)
                             </div>
                         </div>
                         <!--Place of Issue-->
                         <div class="form-group">
-                            @Html.LabelText("Place of Issue", false, "3")
+                            @Html.LabelText("Nơi đăng ký", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.PlaceOfIssue, new { Class = "form-control", placeholder = "Place of Issue" })
+                                @Html.TextBoxFor(m => m.PlaceOfIssue, new { Class = "form-control", placeholder = "Nơi đăng ký" })
                                 @Html.ValidationMessageFor(model => model.PlaceOfIssue)
                             </div>
                         </div>
@@ -171,20 +159,20 @@
                             <div id="crop-avatar" class="text-center">
                                 <!-- Current avatar -->
                                 <img class="img-responsive avatar-view" src="~/Content/images/image-profile-default.jpg" alt="Avatar" title="Change the avatar" style="width:100px;margin:0px auto;" />
-                                <button type="button" class="btn btn-default">Upload Image</button>
+                                <button type="button" class="btn btn-default">Tải hình ảnh</button>
                             </div>
                         </div>
                         <br />
                         <!--Gender-->
                         <div class="form-group">
-                            @Html.LabelText("Gender", false, "3")
+                            @Html.LabelText("Giới tính", false, "3")
                             <div class="col-sm-9">
                                 <div id="gender-group" class="btn-group" data-toggle="buttons">
                                     <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                        <input type="radio" name="gender-radio" value="nam" data-parsley-multiple="gender" data-parsley-id="12"> &nbsp; Male &nbsp;
+                                        <input type="radio" name="gender-radio" value="nam" data-parsley-multiple="gender" data-parsley-id="12"> &nbsp; Name &nbsp;
                                     </label>
                                     <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                        <input type="radio" name="gender-radio" value="nữ" data-parsley-multiple="gender"> Female
+                                        <input type="radio" name="gender-radio" value="nữ" data-parsley-multiple="gender"> Nữ
                                     </label>
                                     @Html.HiddenFor(m => m.Gender,"")
                                 </div>
@@ -205,42 +193,42 @@
 
                         <!--Select Department-->
                         <div class="form-group">
-                            @Html.LabelText("Dept.", false, "3")
+                            @Html.LabelText("Phòng ban", false, "3")
                             <div class="col-sm-9 col-xs-12">
                                 @Html.HiddenFor(m=>m.IDDept)
-                                @Html.DropDownList("depatment-dropdown", Model.Depatments, "-- Select Status --", new { @name="",@class="select2_single form-control"})
+                                @Html.DropDownList("depatment-dropdown", Model.Depatments, "-- Chọn phòng ban --", new { @name="",@class="select2_single form-control"})
                             </div>
                         </div>
                         <!--Select Company-->
                         <div class="form-group">
-                            @Html.LabelText("Company", false, "3")
+                            @Html.LabelText("Công ty", false, "3")
                             <div class="col-sm-9 col-xs-12">
                                 @Html.HiddenFor(m => m.IDComp)
-                                @Html.DropDownList("company-dropdown", Model.Companies, "-- Select Status --", new { @name="", @class = "select2_single form-control" })
+                                @Html.DropDownList("company-dropdown", Model.Companies, "-- Chọn công ty --", new { @name="", @class = "select2_single form-control" })
                             </div>
                         </div>
 
                         <!--Position-->
                         <div class="form-group">
-                            @Html.LabelText("Position", false, "3")
+                            @Html.LabelText("Chức vụ", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.Position, new { Class = "form-control", placeholder = "Position" })
+                                @Html.TextBoxFor(m => m.Position, new { Class = "form-control", placeholder = "Chức vụ" })
                                 @Html.ValidationMessageFor(model => model.Position)
                             </div>
                         </div>
                         <!--Telephone-->
                         <div class="form-group">
-                            @Html.LabelText("Telephone", false, "3")
+                            @Html.LabelText("Số điện thoại nhà", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.Telephone, new { Class = "form-control", placeholder = "Telephone", @data_inputmask = "'mask' : '(999) 999-9{1,5}'" })
+                                @Html.TextBoxFor(m => m.Telephone, new { Class = "form-control", placeholder = "Số điện thoại nhà", @data_inputmask = "'mask' : '(999) 999-9{1,5}'" })
                                 @Html.ValidationMessageFor(model => model.Telephone)
                             </div>
                         </div>
                         <!--Mobile-->
                         <div class="form-group">
-                            @Html.LabelText("Mobile", false, "3")
+                            @Html.LabelText("Số di động", false, "3")
                             <div class="col-sm-9 col-xs-12">
-                                @Html.TextBoxFor(m => m.Mobile, new { Class = "form-control", placeholder = "Mobile", @data_inputmask = "'mask' : '+(84) 999-999-9{1,5}'" })
+                                @Html.TextBoxFor(m => m.Mobile, new { Class = "form-control", placeholder = "Số di động", @data_inputmask = "'mask' : '+(84) 999-999-9{1,5}'" })
                                 @Html.ValidationMessageFor(model => model.Mobile)
                             </div>
 
@@ -254,7 +242,7 @@
                             </div>
                         </div>
 
-                        <input type="submit" class="btn btn-primary" style="float:right; margin-top: 45px;" value="Submit Profile">
+                        <input type="submit" class="btn btn-primary" style="float:right; margin-top: 45px;" value="Lưu nhân viên">
 
                     </div>
 
@@ -281,13 +269,19 @@
 <script src="~/Content/vendors/iCheck/icheck.min.js"></script>
 
 <!-- bootstrap-wysiwyg -->
-<script src="~/Content/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-<script src="~/Content/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+@*<script src="~/Content/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+<script src="~/Content/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>*@
 <script src="~/Content/vendors/google-code-prettify/src/prettify.js"></script>
+
 <!-- jQuery Tags Input -->
 <script src="~/Content/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+
 <!-- jquery.inputmask -->
 <script src="~/Content/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+<script src="~/Content/vendors/jquery.inputmask/dist/min/inputmask/inputmask.date.extensions.min.js"></script>
+    <!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+<script src="~/Content/vendors/datepicker/daterangepicker.js"></script>
 
 <!-- Switchery -->
 <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
@@ -361,9 +355,9 @@
 
         initToolbarBootstrapBindings();
 
-        $('#editor').wysiwyg({
-            fileUploadError: showErrorAlert
-        });
+        //$('#editor').wysiwyg({
+        //    fileUploadError: showErrorAlert
+        //});
 
         window.prettyPrint;
         prettyPrint();
@@ -373,16 +367,10 @@
 <!-- Select2 -->
 <script>
     $(document).ready(function () {
-        $(".select2_single").select2({
-            placeholder: "Select a state",
-            allowClear: true
-        });
-        $(".select2_group").select2({});
-        $(".select2_multiple").select2({
-            maximumSelectionLength: 4,
-            placeholder: "With Max Selection limit 4",
-            allowClear: true
-        });
+        //$(".select2_single").select2({
+        //    placeholder: "Select a state",
+        //    allowClear: true
+        //});
     });
 </script>
 <!-- /Select2 -->
@@ -392,14 +380,14 @@
 <script>
     $(document).ready(function () {
         //<!-- jQuery Tags Input -->
-        $('#tags_1').tagsInput({
-            width: 'auto'
-        });
+        //$('#tags_1').tagsInput({
+        //    width: 'auto'
+        //});
         //<!-- /jQuery Tags Input -->
 
-        $.listen('parsley:field:validate', function () {
-            validateFront();
-        });
+        //$.listen('parsley:field:validate', function () {
+        //    validateFront();
+        //});
         $('#demo-form .btn').on('click', function () {
             $('#demo-form').parsley().validate();
             validateFront();
@@ -416,9 +404,9 @@
     });
 
     $(document).ready(function () {
-        $.listen('parsley:field:validate', function () {
-            validateFront();
-        });
+        //$.listen('parsley:field:validate', function () {
+        //    validateFront();
+        //});
         $('#demo-form2 .btn').on('click', function () {
             $('#demo-form2').parsley().validate();
             validateFront();
@@ -503,6 +491,10 @@
     $("#company-dropdown").on('change', function (e) {
         $("[name=IDComp]").val($(this).val())
     });
+
+    $("[data-mask]").inputmask();
+    //Date range picker
+    $('#reservation').daterangepicker();
 </script>
 <!-- /jquery.inputmask -->
 <!-- end main container -->

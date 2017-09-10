@@ -1,5 +1,7 @@
-﻿@{
+﻿@using HRSystemTDH.Models
+@{
     Layout = null;
+    var employee = (Employee)Session[HRSystemTDH.Helpers.Constant.USER_PROFILE];
 }
 
 <!-- top navigation -->
@@ -17,7 +19,7 @@
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 
                         <img src="@Url.Content("~/Content/images/personal-photo/admin.PNG")" />
-                        <span>@(Session["user-login"] != null ? "" : "Admin")</span>
+                        <span>@( employee!= null ? (employee.FirstName + " " + employee.LastName)  : "Admin")</span>
                         <span class="fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">

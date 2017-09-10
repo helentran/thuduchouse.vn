@@ -105,13 +105,15 @@ namespace HRSystemTDH.Models
         #endregion
 
         #region Employee
-        public List<Employee> GetEmployee(int idemp = 0)
+        public List<Employee> GetEmployee(int idemp = 0, string codeEmp = null)
         {
             var stafflist = new List<Employee>();
             using (var conn = DB.HRSystem)
             {
                 if (idemp != 0)
                     stafflist = conn.Query<Employee>("spm_Employee", new { sql = "select", IDEmp = idemp }, commandType: CommandType.StoredProcedure).ToList();
+                else if (codeEmp!=null)
+                    stafflist = conn.Query<Employee>("spm_Employee", new { sql = "select", CodeEmp = codeEmp }, commandType: CommandType.StoredProcedure).ToList();
                 else
                     stafflist = conn.Query<Employee>("spm_Employee", new { sql = "select" }, commandType: CommandType.StoredProcedure).ToList();
             }
